@@ -3,27 +3,25 @@
     <h2 class="text-center h2-font">ログイン</h2>
     <br>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-group">
-      <%= f.email_field :email, autofocus: true, placeholder: "メールアドレス", class: "form-control" %>
-    </div>
+  
+      <div class="form-group">
+        <%= f.email_field :email, autofocus: true, placeholder: "メールアドレス", class: "form-control" %>
+      </div>
 
-    <div class="form-group">
-      <%= f.password_field :password, autocomplete: "off", placeholder: "パスワード", class: "form-control" %>
-    </div>
+      <div class="form-group">
+        <%= f.password_field :password, autocomplete: "off", placeholder: "パスワード", class: "form-control" %>
+      </div>
 
-    <div>
-      <% if devise_mapping.rememberable? %>
-        <%= f.check_box :remember_me %> 二回目以降の入力を省略
-      <% end %>
+      <div class="actions">
+        <%= f.submit "ログイン", class: "btn btn-block btn-primary" %>
+      </div>
 
-      <span class="pull-right">
-        <%= link_to "パスワードを忘れた場合はこちら", new_user_password_path %>
-      </span>
-    </div>
+      <div>
+        <span class="pull-right">
+          <%= link_to "パスワードを忘れた場合はこちら", new_user_password_path %>
+        </span>
+      </div>
 
-    <div class="actions">
-      <%= f.submit "ログイン", class: "btn btn-block btn-primary" %>
-    </div>
     <% end %>
 
     <hr>
